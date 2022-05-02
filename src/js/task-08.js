@@ -5,9 +5,13 @@ loginFormRef.addEventListener("submit", handleSubmit);
 function handleSubmit(e) {
   e.preventDefault();
   const {
-    elements: { login, password },
+    elements: { email, password },
   } = e.currentTarget;
-  if (login.value === "" || password.value === "") {
-    alert();
+  if (email.value === "" || password.value === "") {
+    alert("Write the email and the password");
+    return;
   }
+  console.log(`email: ${email.value},
+  password: ${password.value}`);
+  e.currentTarget.reset();
 }
