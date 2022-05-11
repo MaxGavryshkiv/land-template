@@ -26,14 +26,13 @@ player
   });
 
 //add event listener to player
-player.on('timeupdate', throttle(onPlay, 1000));
+player.on('timeupdate', throttle(onTimeUpdate, 1000));
 
 // function setting current time to localstorage
-const onPlay = function (data) {
-  console.log('timeupdate:', data);
+function onTimeUpdate(data) {
   try {
-    localStorage.setItem('videoplayer-current-time', JSON.stringify(data.seconds));
+    localStorage.setItem('videoplayer-current-time', data.seconds);
   } catch (error) {
     console.log(error.message);
   }
-};
+}
